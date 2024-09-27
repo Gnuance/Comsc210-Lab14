@@ -27,7 +27,7 @@ public:
     int getG() const;
     int getB() const;
     string toString() const; // print() method but returns a string
-    friend ostream& operator<<(ostream&, const Color&);
+    // friend ostream& operator<<(ostream&, const Color&);
     ~Color();
 };
 
@@ -113,8 +113,8 @@ string Color::toString() const {
     return output;
 }
 
-// Overriden << operator
-ostream& Color::operator<<(ostream& os, const Color& c) {
+// Overriden operator<<
+ostream& operator<<(ostream& os, const Color& c) {
         os << c.toString();
         return os;
 }
