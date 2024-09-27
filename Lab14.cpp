@@ -27,7 +27,7 @@ public:
     int getG() const;
     int getB() const;
     string toString() const; // print() method but returns a string
-    ostream& operator<<(ostream& os, const Color& obj);
+    friend ostream& operator<<(ostream& os, const Color& c);
     ~Color();
 };
 
@@ -100,11 +100,11 @@ void Color::setColor(int Red, int Green, int Blue)
 int Color::getR() const {
     return r;
 }
-int Color::getR() const {
-    return r;
+int Color::getG() const {
+    return g;
 }
-int Color::getR() const {
-    return r;
+int Color::getB() const {
+    return b;
 }
 
 // Standard toString function for class
@@ -116,7 +116,7 @@ string Color::toString() const {
 }
 
 // Overriden << operator
-ostream& operator<<(ostream& os, const Color& const c) {
+ostream& Color::operator<<(ostream& os, const Color& c) {
         os << c.toString();
         return os;
 }
