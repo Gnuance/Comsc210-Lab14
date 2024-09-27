@@ -27,15 +27,13 @@ public:
     int getG() const;
     int getB() const;
     string toString() const; // print() method but returns a string
-    friend ostream& operator<<(ostream& os, const Color& c);
+    friend ostream& operator<<(ostream&, const Color&);
     ~Color();
 };
 
 int main()
 {
     // Initialize variables
-    const string DIVIDER = string(25, '*');
-    const string COLOR_BAR = string(15, ' ');
     const unsigned int SIZE = 30;
     string fileLine = "";
     vector<int> colorCodes = {}; // Initialize vector, will be destroyed and redefined during file read
