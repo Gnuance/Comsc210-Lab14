@@ -51,8 +51,11 @@ Color::Color()
 
 // Overloaded constructor
 Color::Color(int red, int green, int blue)
-    : r(red), g(green), b(blue) // Initialized default if none specified
+// Initialized default if none specified
 {
+    setR(red);
+    setG(green);
+    setB(blue);
 }
 
 void Color::setR(int Red)
