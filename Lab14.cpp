@@ -27,7 +27,6 @@ public:
     int getG() const;
     int getB() const;
     string toString() const; // print() method but returns a string
-    // friend ostream& operator<<(ostream&, const Color&);
     ~Color();
 };
 
@@ -95,18 +94,22 @@ void Color::setColor(int Red, int Green, int Blue)
     setG(Green);
     setB(Blue);
 }
-int Color::getR() const {
+int Color::getR() const
+{
     return r;
 }
-int Color::getG() const {
+int Color::getG() const
+{
     return g;
 }
-int Color::getB() const {
+int Color::getB() const
+{
     return b;
 }
 
 // Standard toString function for class
-string Color::toString() const {
+string Color::toString() const
+{
     stringstream oss;
     oss << "r: " << r << " g: " << g << " b: " << b;
     string output = oss.str();
@@ -114,9 +117,10 @@ string Color::toString() const {
 }
 
 // Overriden operator<<
-ostream& operator<<(ostream& os, const Color& c) {
-        os << c.toString();
-        return os;
+ostream &operator<<(ostream &os, const Color &c)
+{
+    os << c.toString();
+    return os;
 }
 
 Color::~Color()
