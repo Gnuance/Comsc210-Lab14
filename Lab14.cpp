@@ -32,6 +32,11 @@ public:
     ~Color();
 };
 
+// ADDED FROM LAB 13
+void SetForegroundColor(int, int, int); // Changes cout letter color
+void SetBackgroundColor(int, int, int); // Changes cout background color
+void ResetColor(); // Resets console output color
+
 int main()
 {
     // Initialize variables
@@ -41,6 +46,7 @@ int main()
     for (size_t i = 0; i < COLORS_SIZE; i++)
     {
         colors[i] = Color();
+        SetForegroundColor(co)
         cout << colors[i].randomizeColor().toString() << endl;
     }      
 
@@ -146,4 +152,22 @@ ostream &operator<<(ostream &os, const Color &c)
 
 Color::~Color()
 {
+}
+
+// Changes cout letter color
+void SetForegroundColor(int r, int g, int b)
+{
+    cout << "\033[38;2;" << r << ";" << g << ";" << b << "m";
+}
+
+// Changes cout background color
+void SetBackgroundColor(int r, int g, int b)
+{
+    cout << "\033[48;2;" << r << ";" << g << ";" << b << "m";
+}
+
+// Resets console output color
+void ResetColor()
+{
+    cout << "\033[0m";
 }
