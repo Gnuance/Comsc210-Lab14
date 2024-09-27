@@ -116,7 +116,7 @@ string Color::toString() const {
 }
 
 // Overriden << operator
-ostream& operator<<(std::ostream& os, const Color& const c) {
+ostream& operator<<(ostream& os, const Color& const c) {
         os << c.toString();
         return os;
 }
