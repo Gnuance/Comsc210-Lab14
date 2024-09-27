@@ -48,14 +48,15 @@ int main()
     cout << "COLORS:" << endl;
     for (size_t i = 0; i < COLORS_SIZE; i++)
     {
-        colors[i] = Color().randomizeColor();
-        SetForegroundColor(colors[i].getR(), colors[i].getG(), colors[i].getB());
+        if (i % 4 == 0 && i != 0) cout << endl;
+        colors[i] = Color().randomizeColor(); // Return randomized color object
+        SetForegroundColor(colors[i].getR(), colors[i].getG(), colors[i].getB()); // Change text color to RGB values
         cout << "Color " << i << "::";
         ResetColor();
-        cout << " " << colors[i].toString() << endl;        
+        cout << " " << colors[i].toString() << "\t";        
     }      
 
-    cout << endl; // Spacing
+    cout << endl << endl; // Spacing
     return 0;
 }
 
@@ -143,7 +144,7 @@ Color& Color::randomizeColor(){
 string Color::toString() const
 {
     stringstream oss;
-    oss << "r: " << r << "  g: " << g << "  b: " << b;
+    oss << "r: " << r << " g: " << g << " b: " << b;
     string output = oss.str();
     return output;
 }
