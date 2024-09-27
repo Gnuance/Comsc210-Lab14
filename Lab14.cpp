@@ -43,11 +43,16 @@ int main()
     const unsigned int COLORS_SIZE = 20;
     Color colors[COLORS_SIZE] = {};
 
+    // Finally, have some fun and output color codes with color
+    // Not going to color the individual elements in toString
+    cout << "COLORS:" << endl;
     for (size_t i = 0; i < COLORS_SIZE; i++)
     {
-        colors[i] = Color();
-        SetForegroundColor(co)
-        cout << colors[i].randomizeColor().toString() << endl;
+        colors[i] = Color().randomizeColor();
+        SetForegroundColor(colors[i].getR(), colors[i].getG(), colors[i].getB());
+        cout << "Color " << i << "::";
+        ResetColor();
+        cout << " " << colors[i].toString() << endl;        
     }      
 
     cout << endl; // Spacing
@@ -138,7 +143,7 @@ Color& Color::randomizeColor(){
 string Color::toString() const
 {
     stringstream oss;
-    oss << "r: " << r << " g: " << g << " b: " << b;
+    oss << "r: " << r << "  g: " << g << "  b: " << b;
     string output = oss.str();
     return output;
 }
