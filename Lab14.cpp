@@ -8,7 +8,16 @@
 using namespace std;
 
 // Declare color class to store RGB values
-
+class Color
+{
+private:
+    int r;
+    int g;
+    int b;
+public:
+    Color(/* args */);
+    ~Color();
+};
 
 int main()
 {
@@ -33,3 +42,11 @@ int main()
     return 0;
 }
 
+Color::Color(/* args */)
+: r(0), g(0), b(0) // Initialized default if none specified
+{
+}
+
+Color::~Color()
+{
+}
