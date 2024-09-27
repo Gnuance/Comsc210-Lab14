@@ -5,6 +5,7 @@
 #include <iomanip>
 #include <vector> // For vector instead of array
 #include <string>
+#include <random>
 
 using namespace std;
 
@@ -26,6 +27,7 @@ public:
     int getR() const;
     int getG() const;
     int getB() const;
+    Color getRandomColor(); // Returns color object with random RGB
     string toString() const; // print() method but returns a string
     ~Color();
 };
@@ -35,8 +37,6 @@ int main()
     // Initialize variables
     const unsigned int SIZE = 30;
     string fileLine = "";
-    vector<int> colorCodes = {}; // Initialize vector, will be destroyed and redefined during file read
-    vector<int>::iterator it;    // Iterator to traverse array. Not really needed because each loop redeclares iterator anyways
     unsigned int index = 0;
 
     cout << endl; // Spacing
@@ -108,6 +108,15 @@ int Color::getG() const
 int Color::getB() const
 {
     return b;
+}
+
+// Return random color
+Color getRandomColor(){
+    // Random number generator to create RGB
+    // random_device rd;
+    mt19937 gen(random_device);
+    uniform_int_distribution<> dist(0, 255);  // For creating colors
+    return Color(dist(gen), dist(gen), dist(gen));
 }
 
 // Standard toString function for class
