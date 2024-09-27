@@ -35,9 +35,14 @@ public:
 int main()
 {
     // Initialize variables
-    const unsigned int SIZE = 30;
-    string fileLine = "";
-    unsigned int index = 0;
+    const unsigned int COLORS_SIZE = 20;
+    Color colors[COLORS_SIZE] = {};
+
+    for (size_t i = 0; i < COLORS_SIZE; i++)
+    {
+        colors[i] = getRandomColor();
+        cout << colors[i].toString() << endl;
+    }      
 
     cout << endl; // Spacing
     return 0;
@@ -111,10 +116,10 @@ int Color::getB() const
 }
 
 // Return random color
-Color getRandomColor(){
+Color Color::getRandomColor(){
     // Random number generator to create RGB
-    // random_device rd;
-    mt19937 gen(random_device);
+    random_device rd;
+    mt19937 gen(rd);
     uniform_int_distribution<> dist(0, 255);  // For creating colors
     return Color(dist(gen), dist(gen), dist(gen));
 }
