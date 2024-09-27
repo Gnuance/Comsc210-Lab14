@@ -15,7 +15,12 @@ private:
     int g;
     int b;
 public:
-    Color(/* args */);
+    Color();
+    Color(int, int, int);
+    void setR(int);
+    void setG(int);
+    void setB(int);
+    void setColor(int, int, int);
     ~Color();
 };
 
@@ -45,6 +50,41 @@ int main()
 Color::Color(/* args */)
 : r(0), g(0), b(0) // Initialized default if none specified
 {
+}
+
+Color::Color(int red, int green, int blue)
+: r(red), g(green), b(blue) // Initialized default if none specified
+{
+}
+
+void Color::setR(int Red){
+    if (Red >= 0 && Red <= 255)
+    {
+        r = Red;
+    } else {
+        throw invalid_argument("Red value must be between 0 and 255.");
+    }
+}
+void Color::setG(int Green){
+    if (Green >= 0 && Green <= 255)
+    {
+        g = Green;
+    } else {
+        throw invalid_argument("Green value must be between 0 and 255.");
+    }
+}
+void Color::setB(int Blue){
+    if (Blue >= 0 && Blue <= 255)
+    {
+        b = Blue;
+    } else {
+        throw invalid_argument("Blue value must be between 0 and 255.");
+    }
+}
+void Color::setColor(int Red, int Green, int Blue){
+    setR(Red);
+    setG(Green);
+    setB(Blue);
 }
 
 Color::~Color()
