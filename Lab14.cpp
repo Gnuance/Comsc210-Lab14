@@ -27,7 +27,7 @@ public:
     int getR() const;
     int getG() const;
     int getB() const;
-    Color getRandomColor(); // Returns color object with random RGB
+    Color& randomizeColor(); // Randomizes color RGB values. Return by & for method chaining
     string toString() const; // print() method but returns a string
     ~Color();
 };
@@ -41,7 +41,7 @@ int main()
     for (size_t i = 0; i < COLORS_SIZE; i++)
     {
         colors[i] = Color();
-        cout << colors[i].toString() << endl;
+        cout << colors[i].randomizeColor().toString() << endl;
     }      
 
     cout << endl; // Spacing
@@ -116,13 +116,16 @@ int Color::getB() const
     return b;
 }
 
-// Randomize color
-Color Color::getRandomColor(){
+// Randomize color. Return by & for method chaining
+Color& Color::randomizeColor(){
     // Random number generator to create RGB
     random_device rd;
     mt19937 gen(rd());
     uniform_int_distribution<> dist(0, 255);  // For creating colors
-    return Color(dist(gen), dist(gen), dist(gen));
+    setR(dist(gen));
+    setG(dist(gen));
+    setB(dist(gen));
+    return *this;
 }
 
 // Standard toString function for class
