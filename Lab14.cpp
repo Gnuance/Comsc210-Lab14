@@ -1,6 +1,7 @@
 // Lab 14: Creates multiple color objects consisting of RGB values and outputs those object values to console.
 
 #include <iostream>
+#include <sstream>
 #include <iomanip>
 #include <vector> // For vector instead of array
 #include <string>
@@ -105,11 +106,16 @@ int Color::getR() const {
 int Color::getR() const {
     return r;
 }
-// I would probably call 
+
+// Standard toString function for class
 string Color::toString() const {
-    return to_string("r: " + r + " g: " + g + " b: " + b);
+    stringstream oss;
+    oss << "r: " << r << " g: " << g << " b: " << b;
+    string output = oss.str();
+    return output;
 }
 
+// Overriden << operator
 ostream& operator<<(std::ostream& os, const Color& const c) {
         os << c.toString();
         return os;
