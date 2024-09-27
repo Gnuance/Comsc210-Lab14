@@ -25,7 +25,8 @@ public:
     int getR() const;
     int getG() const;
     int getB() const;
-    int toString() const; // print() method but returns a string
+    string toString() const; // print() method but returns a string
+    ostream& operator<<(ostream& os, const Color& obj);
     ~Color();
 };
 
@@ -105,8 +106,13 @@ int Color::getR() const {
     return r;
 }
 // I would probably call 
-string Color::print() const {
-    return r;
+string Color::toString() const {
+    return to_string("r: " + r + " g: " + g + " b: " + b);
+}
+
+ostream& operator<<(std::ostream& os, const Color& const c) {
+        os << c.toString();
+        return os;
 }
 
 Color::~Color()
