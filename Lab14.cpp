@@ -3,7 +3,6 @@
 #include <iostream>
 #include <sstream>
 #include <iomanip>
-#include <vector> // For vector instead of array
 #include <string>
 #include <random>
 
