@@ -40,7 +40,7 @@ int main()
 
     for (size_t i = 0; i < COLORS_SIZE; i++)
     {
-        colors[i] = getRandomColor();
+        colors[i] = Color();
         cout << colors[i].toString() << endl;
     }      
 
@@ -48,6 +48,7 @@ int main()
     return 0;
 }
 
+// COLOR CLASS
 // Default constructor
 Color::Color()
     : r(0), g(0), b(0) // Initialized default if none specified
@@ -115,11 +116,11 @@ int Color::getB() const
     return b;
 }
 
-// Return random color
+// Randomize color
 Color Color::getRandomColor(){
     // Random number generator to create RGB
     random_device rd;
-    mt19937 gen(rd);
+    mt19937 gen(rd());
     uniform_int_distribution<> dist(0, 255);  // For creating colors
     return Color(dist(gen), dist(gen), dist(gen));
 }
